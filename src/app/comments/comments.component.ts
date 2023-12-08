@@ -23,7 +23,7 @@ export class CommentsComponent {
 
     @Output() usersMentioned = new EventEmitter<User[]>();
 
-    constructor(private commentsService: CommentsService, private usersService: UsersService) { }
+    constructor(public commentsService: CommentsService, private usersService: UsersService) { }
 
     addComment() {
         if (this.userSelected) {

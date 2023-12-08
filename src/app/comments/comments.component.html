@@ -16,7 +16,7 @@
     <h2>Comments</h2>
     <div *ngFor="let comment of comments; index as i">
         <p>
-            <span class="comment-text">{{ comment.text }}</span>
+            <span class="comment-text" [innerHTML]="this.commentsService.getFormattedComment(comment)">{{ comment.text }}</span>
             <span class="comment-user">{{ comment.user }}</span>
             <span class="comment-timestamp">{{ comment.timestamp | date:'short' }}</span>
         </p>

@@ -37,8 +37,4 @@ export class UsersService {
     clearUsersMentioned() {
         this.usersMentioned = [];
     }
-
-    getUserByName(name: string): User | undefined {
-        return this.users.find(user => user.name === name);
-    }
 }

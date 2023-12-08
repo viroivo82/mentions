@@ -20,7 +20,7 @@
     <div *ngFor="let comment of comments; index as i" class="comment-container">
         <div class="comment-icon-text">
             <span class="comment-icon">💬</span>
-            <span class="comment-text" [innerHTML]="this.commentsService.getFormattedComment(comment)">{{ comment.text }}</span>
+            <span class="comment-text" [innerHTML]="comment.text | mentionedUser"></span>
         </div>
         <div class="comment-user-timestamp">
             <span class="comment-user">{{ comment.user }}</span> - 

@@ -9,12 +9,14 @@ import { User } from './services/users.service';
   standalone: true,
   imports: [CommonModule, RouterOutlet, CommentsComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'Mentions';
-  
+
   handleUserMentioned(users: User[]) {
-    users.forEach(user => console.log(`${user.name} was mentioned in a comment.`));
+    users.forEach((user) =>
+      console.log(`${user.name} was mentioned in a comment.`)
+    );
   }
 }

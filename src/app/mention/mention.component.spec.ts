@@ -9,10 +9,9 @@ describe('MentionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MentionComponent]
-    })
-    .compileComponents();
-    
+      imports: [MentionComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(MentionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -22,59 +21,59 @@ describe('MentionComponent', () => {
     expect(component).toBeTruthy();
   });
   describe('filteredUsers', () => {
-      it('should return all users when filter is not set', () => {
-            // Arrange
-            component.users = [
-                { userID: 1, name: 'John' },
-                { userID: 2, name: 'Jane' },
-                { userID: 3, name: 'Alice' }
-            ];
-            
-            // Act
-            const result = component.filteredUsers;
-            
-            // Assert
-            expect(result).toEqual(component.users);
-        });
+    it('should return all users when filter is not set', () => {
+      // Arrange
+      component.users = [
+        { userID: 1, name: 'John' },
+        { userID: 2, name: 'Jane' },
+        { userID: 3, name: 'Alice' },
+      ];
+
+      // Act
+      const result = component.filteredUsers;
+
+      // Assert
+      expect(result).toEqual(component.users);
+    });
 
     it('should return filtered users when filter is set', () => {
       // Arrange
       component.users = [
-            { userID: 1, name: 'John' },
-            { userID: 2, name: 'Jane' },
-            { userID: 3, name: 'Alice' }
-        ];
-        component.filter = 'j';
-    
-        // Act
-        const result = component.filteredUsers;
-    
-        // Assert
-        expect(result).toEqual([
-            { userID: 1, name: 'John' },
-            { userID: 2, name: 'Jane' }
-        ]);
-    });
-
-it('should ignore case sensitivity when filtering users', () => {
-    // Arrange
-    component.users = [
         { userID: 1, name: 'John' },
         { userID: 2, name: 'Jane' },
-        { userID: 3, name: 'Alice' }
-    ];
-    component.filter = 'a';
-    
-    // Act
-    const result = component.filteredUsers;
-    
-    // Assert
-    expect(result).toEqual([
+        { userID: 3, name: 'Alice' },
+      ];
+      component.filter = 'j';
+
+      // Act
+      const result = component.filteredUsers;
+
+      // Assert
+      expect(result).toEqual([
+        { userID: 1, name: 'John' },
         { userID: 2, name: 'Jane' },
-        { userID: 3, name: 'Alice' }
-    ]);
-});
-});
+      ]);
+    });
+
+    it('should ignore case sensitivity when filtering users', () => {
+      // Arrange
+      component.users = [
+        { userID: 1, name: 'John' },
+        { userID: 2, name: 'Jane' },
+        { userID: 3, name: 'Alice' },
+      ];
+      component.filter = 'a';
+
+      // Act
+      const result = component.filteredUsers;
+
+      // Assert
+      expect(result).toEqual([
+        { userID: 2, name: 'Jane' },
+        { userID: 3, name: 'Alice' },
+      ]);
+    });
+  });
   describe('handleKeyDown', () => {
     it('should select the next user when ArrowDown key is pressed', () => {
       // Arrange
@@ -85,7 +84,9 @@ it('should ignore case sensitivity when filtering users', () => {
       component.handleKeyDown(event);
 
       // Assert
-      expect(component.selectedUser).toEqual(component.filteredUsers[index + 1]);
+      expect(component.selectedUser).toEqual(
+        component.filteredUsers[index + 1]
+      );
     });
 
     it('should select the previous user when ArrowUp key is pressed', () => {
@@ -97,10 +98,11 @@ it('should ignore case sensitivity when filtering users', () => {
       component.handleKeyDown(event);
 
       // Assert
-      expect(component.selectedUser).toEqual(component.filteredUsers[index - 1]);
+      expect(component.selectedUser).toEqual(
+        component.filteredUsers[index - 1]
+      );
     });
   });
-
 
   describe('selectUser', () => {
     it('should set the selectedUser', () => {

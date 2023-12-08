@@ -26,13 +26,15 @@ describe('AppComponent', () => {
     const users: User[] = [
       { userID: 1, name: 'John Doe' },
       { userID: 2, name: 'Jane Smith' },
-      { userID: 3, name: 'Mike Johnson' }
+      { userID: 3, name: 'Mike Johnson' },
     ];
     spyOn(console, 'log');
     app.handleUserMentioned(users);
     expect(console.log).toHaveBeenCalledTimes(users.length);
-    users.forEach(user => {
-      expect(console.log).toHaveBeenCalledWith(`${user.name} was mentioned in a comment.`);
+    users.forEach((user) => {
+      expect(console.log).toHaveBeenCalledWith(
+        `${user.name} was mentioned in a comment.`
+      );
     });
   });
 });

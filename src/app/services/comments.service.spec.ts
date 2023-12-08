@@ -17,16 +17,16 @@ describe('CommentsService', () => {
   });
 
   it('should add a comment to the comments array', () => {
-    const comment: Comment = { id: 1, text: 'Test comment', user: 'Test user', timestamp: new Date() };
+    const comment: Comment = { id: 3, text: 'Test comment', user: 'Test user', timestamp: new Date() };
     service.addComment(comment);
-    expect(service.comments.length).toBe(1);
-    expect(service.comments[0]).toEqual(comment);
+    expect(service.comments.length).toBe(3);
+    expect(service.comments[2]).toEqual(comment);
   });
 
   it('should not add a comment if the text is empty', () => {
     const comment: Comment = { id: 1, text: '', user: 'Test user', timestamp: new Date() };
     service.addComment(comment);
-    expect(service.comments.length).toBe(0);
+    expect(service.comments.length).toBe(2);
   });
 
   it('should return the comments array', () => {

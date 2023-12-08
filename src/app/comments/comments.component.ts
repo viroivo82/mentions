@@ -2,9 +2,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommentsService } from '../services/comments.service';
-import { Comment } from '../services/comments.service';
-import { MentionComponent } from "../mention/mention.component"; // Import the Comment interface from the comments.service file
+import { CommentsService, Comment } from '../services/comments.service';
+import { MentionComponent } from "../mention/mention.component";
 import { User, UsersService } from '../services/users.service';
 
 @Component({
@@ -38,7 +37,7 @@ export class CommentsComponent {
             id: Date.now(), // use the current timestamp as a unique id
             text: this.newComment,
             user: 'System', // replace with the actual username
-            timestamp: new Date() // convert the timestamp to a Date object
+            timestamp: new Date()
         };
         this.commentsService.addComment(comment);
         this.newComment = '';

@@ -13,6 +13,7 @@ import { User } from './services/users.service';
 })
 export class AppComponent {
   title = 'Mentions';
+  
   handleUserMentioned(users: User[]) {
     users.forEach(user => console.log(`${user.name} was mentioned in a comment.`));
   }

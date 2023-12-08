@@ -1,5 +1,38 @@
-.comment-text,
-.comment-user,
-.comment-timestamp {
-  margin-right: 10px;
+.comment-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;  // Adjust color as needed
+    padding: 10px 0;  // Add some padding to give each comment some space
+  }
+
+  .comment-icon {
+    margin-right: 5px;
+  }
+
+  .comment-icon-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .comment-user-timestamp {
+    display: flex;
+    align-items: center;
+  }
+  
+  .comment-user,
+  .comment-timestamp {
+    margin: 0 5px;
+    font-style: italic;
+    color: #666; 
+  }
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+  
+textarea {
+    width: 50%;  // Adjust as needed
+    height: 20px;  // Adjust as needed
+    margin-right: 10px;  // Add some space between the textarea and the button
 }

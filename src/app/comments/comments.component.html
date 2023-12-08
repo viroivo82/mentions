@@ -1,24 +1,31 @@
 <!-- comments.component.html -->
 <div>
     <form (submit)="addComment()">
-      <input 
-        [(ngModel)]="newComment" 
-        placeholder="Add a comment" 
-        #ctrl="ngModel" 
-        [ngModelOptions]="{standalone: true}"
-        (keyup.enter)="addComment()"
-        (keyup)="handleKeyup()"
-        required>
-      <button type="submit" [disabled]="newComment.trim() === ''">Add</button>
+        <div class="input-container">
+            <textarea 
+              [(ngModel)]="newComment" 
+              placeholder="Add a comment" 
+              #ctrl="ngModel" 
+              [ngModelOptions]="{standalone: true}"
+              (keyup.enter)="addComment()"
+              (keyup)="handleKeyup()"
+              required>
+              </textarea>
+            <button type="submit" [disabled]="newComment.trim() === ''">Add Comment</button>
+        </div>
       <app-mention *ngIf="showMention" [filter]="filter" (userSelected)="handleUserSelected($event)"></app-mention>
     </form>
   
-    <h2>Comments</h2>
-    <div *ngFor="let comment of comments; index as i">
-        <p>
+    <h2>Comments:</h2>
+    <div *ngFor="let comment of comments; index as i" class="comment-container">
+        <div class="comment-icon-text">
+            <span class="comment-icon">💬</span>
             <span class="comment-text" [innerHTML]="this.commentsService.getFormattedComment(comment)">{{ comment.text }}</span>
-            <span class="comment-user">{{ comment.user }}</span>
+        </div>
+        <div class="comment-user-timestamp">
+            <span class="comment-user">{{ comment.user }}</span> - 
             <span class="comment-timestamp">{{ comment.timestamp | date:'short' }}</span>
-        </p>
+        </div>
+        
     </div>
   </div>

@@ -1,0 +1,5 @@
+<div *ngFor="let user of filteredUsers; let i = index" 
+    [class.selected]="user === selectedUser" 
+    (click)="selectUser(user)">
+    {{ user.name }}
+</div>

@@ -7,8 +7,10 @@
         #ctrl="ngModel" 
         [ngModelOptions]="{standalone: true}"
         (keyup.enter)="addComment()"
+        (keyup)="handleKeyup()"
         required>
       <button type="submit" [disabled]="newComment.trim() === ''">Add</button>
+      <app-mention *ngIf="showMention" [filter]="filter" (userSelected)="handleUserSelected($event)"></app-mention>
     </form>
   
     <h2>Comments</h2>

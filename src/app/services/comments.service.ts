@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
 
+export interface Comment {
+    id: number;
+    text: string;
+    user: string;
+    timestamp: Date;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,10 +23,3 @@ export class CommentsService {
     return this.comments;
   }
 }
-
-export interface Comment {
-    id: number;
-    text: string;
-    user: string;
-    timestamp: Date;
-  }

@@ -12,7 +12,10 @@ export interface Comment {
   providedIn: 'root',
 })
 export class CommentsService {
-  comments: Comment[] = [];
+  comments: Comment[] = [
+    { id: 1, text: 'This is the first comment', user: 'System', timestamp: new Date() },
+    { id: 2, text: 'This is the second comment', user: 'System', timestamp: new Date() }
+  ];
 
   constructor(private sanitizer: DomSanitizer) {}
 

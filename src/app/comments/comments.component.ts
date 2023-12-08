@@ -1,6 +1,6 @@
 // comments.component.ts
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommentsService } from '../services/comments.service';
 import { Comment } from '../services/comments.service';

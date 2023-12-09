@@ -29,11 +29,14 @@ export class CommentsComponent {
   ) {}
 
   addComment() {
+    // if the enter key is pressed to select a user this prevents the enter key from saving the comment
     if (this.userSelected) {
       this.userSelected = false;
       this.showMention = false;
       return;
     }
+
+    // this triggers a function to alert mentioned users
     if (this.usersService.getUsersMentioned()) {
       this.usersMentioned.emit(
         this.usersService

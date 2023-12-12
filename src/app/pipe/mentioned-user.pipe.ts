@@ -10,7 +10,7 @@ export class MentionedUserPipe implements PipeTransform {
 
   transform(value: string): SafeHtml {
     const formattedText = value.replace(
-      /(@\w+)/g,
+      /(?:^|(?<=\s))(@\w+)(?![.\w])/g,
       '<span class="mentioned-user" style="font-weight: bold;">$1</span>'
     );
 
